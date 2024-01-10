@@ -62,8 +62,8 @@ void *consumer(void *arg) {
 	while (num_full == 0) {    c2;
 	    Cond_wait(&fill, &m);  c3;
         }
-	Mutex_unlock(&m);
-	tmp = do_get();            c4;
+	Mutex_unlock(&m);          c4;
+	tmp = do_get();            
 	Mutex_lock(&m);
 	Cond_signal(&empty);       c5;
 	Mutex_unlock(&m);          c6;
